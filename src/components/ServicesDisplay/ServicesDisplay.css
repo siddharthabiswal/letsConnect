@@ -1,0 +1,39 @@
+/* .serviceDisplay {
+  border: 2px solid black;
+} */
+
+/* Base container styles */
+.serviceDisplay {
+  display: flex; /* Enables Flexbox */
+  flex-direction: column; /* Stack content vertically */
+  align-items: center; /* Center content horizontally */
+  justify-content: center; /* Center content vertically */
+
+  width: 100%; /* Take full width of the parent */
+  min-height: 300px; /* Set a minimum height */
+  padding: 1rem; /* Inner spacing */
+  box-sizing: border-box;
+
+  background-color: #f8f9fa; /* Light background for visibility */
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
+  transition: all 0.3s ease; /* Smooth resize transitions */
+}
+
+/* Responsive design for tablets and below */
+@media (max-width: 768px) {
+  .serviceDisplay {
+    flex-direction: column;
+    padding: 0.75rem;
+    min-height: 250px;
+  }
+}
+
+/* Responsive design for mobile */
+@media (max-width: 480px) {
+  .serviceDisplay {
+    min-height: 200px;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+}

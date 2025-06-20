@@ -1,0 +1,33 @@
+/* HomeContainer: Acts as the main wrapper for nested pages inside the home screen */
+
+.HomeContainer {
+  position: relative; /* ✅ Anchor for absolute children like sideMenu */
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex-grow: 1;
+  background-color: red;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  gap: 1rem;
+  transition: all 0.3s ease;
+}
+
+/* Tablet view: Apply horizontal layout and allow wrapping if needed */
+@media (min-width: 768px) {
+  .HomeContainer {
+    flex-direction: row; /* Place children side-by-side */
+    flex-wrap: wrap; /* Wrap children to next row if there's not enough space */
+    padding: 2rem; /* Slightly larger padding on bigger screens */
+    gap: 1.5rem; /* More spacing between children */
+  }
+}
+
+/* Desktop view: Further increase spacing for wide layouts */
+@media (min-width: 1024px) {
+  .HomeContainer {
+    padding: 3rem; /* Even more padding for comfortable layout */
+    gap: 2rem; /* Generous spacing between sections */
+  }
+}

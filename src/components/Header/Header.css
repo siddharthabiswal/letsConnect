@@ -1,0 +1,34 @@
+/* Header: Top section inside HomeContainer, containing app title, nav, icons, etc. */
+
+.header {
+  display: flex; /* Flex layout to align and space children */
+  flex-direction: column; /* Stack items vertically on mobile */
+  align-items: center; /* Center items horizontally */
+  justify-content: center; /* Center items vertically */
+  width: 100%; /* Full width of its parent (HomeContainer) */
+  padding: 1rem; /* Spacing around the content */
+  background-color: #ffffff; /* Clean white background */
+  border-radius: 8px; /* Slightly rounded corners for visual appeal */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  gap: 0.5rem; /* Space between child elements (logo, nav, etc.) */
+  text-align: center; /* Center text content on small screens */
+  transition: all 0.3s ease; /* Smooth layout transition on resize */
+}
+
+/* Tablet view and up */
+@media (min-width: 768px) {
+  .header {
+    flex-direction: row; /* Switch to horizontal layout on wider screens */
+    justify-content: space-between; /* Spread content across the header */
+    align-items: center; /* Align items centrally in vertical space */
+    text-align: left; /* Align text left where appropriate */
+    padding: 1rem 2rem; /* Add horizontal breathing room */
+  }
+}
+
+/* Desktop view and up */
+@media (min-width: 1024px) {
+  .header {
+    padding: 1.5rem 3rem; /* Even more spacious layout on large screens */
+  }
+}

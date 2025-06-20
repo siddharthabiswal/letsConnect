@@ -1,0 +1,59 @@
+.categoryGridContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.categoryCard {
+  background-color: #f9f9f9;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  width: 140px;
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+}
+
+.categoryCard:hover {
+  transform: translateY(-4px);
+}
+
+.categoryIcon {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.categoryLabel {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Responsive Flex Wrapping */
+@media (max-width: 1200px) {
+  .categoryCard {
+    width: 120px;
+  }
+}
+
+@media (max-width: 768px) {
+  .categoryCard {
+    width: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .categoryCard {
+    width: 90px;
+    font-size: 0.8rem;
+  }
+}

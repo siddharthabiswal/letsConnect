@@ -1,0 +1,85 @@
+.carouselWrapper {
+  width: 100%;
+  margin: 1rem auto;
+  background-color: #fff;
+  padding: 1rem;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Image container inside each slide */
+.carouselImageContainer {
+  padding: 0 0.5rem;
+}
+
+.carouselImageContainer img {
+  width: 100%;
+  height: 200px; /* Increased height */
+  object-fit: cover; /* Crop excess while keeping aspect ratio */
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.carouselImageContainer img:hover {
+  transform: scale(1.05);
+}
+
+/* For Responsive Adjustments (optional)*/
+
+@media (max-width: 768px) {
+  .carouselImageContainer img {
+    height: 160px;
+  }
+}
+
+@media (max-width: 480px) {
+  .carouselImageContainer img {
+    height: 130px;
+  }
+}
+
+/* height to adapt based on width while maintaining a consistent aspect ratio:*/
+
+.carouselImageContainer {
+  aspect-ratio: 3 / 1; /* Width : Height */
+}
+.carouselImageContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/*this is for the pointers*/
+
+/* Customize the Slick arrows */
+.slick-prev,
+.slick-next {
+  z-index: 2;
+  background-color: white; /* Make arrow button stand out */
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.slick-prev::before,
+.slick-next::before {
+  color: red; /* Arrow icon color */
+  font-size: 20px;
+}
+
+/* Optional: adjust position */
+.slick-prev {
+  left: -15px;
+}
+.slick-next {
+  right: -15px;
+}
+
+.slick-prev:hover,
+.slick-next:hover {
+  background-color: #ffcccb;
+  cursor: pointer;
+}

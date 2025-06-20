@@ -1,0 +1,25 @@
+.advertisements {
+  width: 100%; /* take full width of parent */
+  max-width: 1200px; /* optional: cap it for large screens */
+  margin: 0 auto; /* center the container */
+  padding: 1rem; /* spacing inside */
+  box-sizing: border-box; /* include padding in width calculations */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+  .advertisements {
+    padding: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .advertisements {
+    padding: 0.5rem;
+  }
+}
