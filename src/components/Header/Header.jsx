@@ -1,20 +1,13 @@
-
-
-
 import './Header.css';
+import Logo from '../Logo/Logo';
 
-
-
-
-const Header = () => {
-    return (
-
-
-        <div className="header">
-            I am the Header
-        </div>
-
-    );
+const Header = ({ toggleMenu }) => {
+  return (
+    <div className="header">
+      <div className="menuButton" onClick={toggleMenu}>☰</div>
+      <Logo />
+    </div>
+  );
 };
 
 export default Header;

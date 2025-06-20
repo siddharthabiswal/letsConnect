@@ -1,7 +1,7 @@
 /* HomeContainer: Acts as the main wrapper for nested pages inside the home screen */
 
 .HomeContainer {
-  position: relative; /* ✅ Anchor for absolute children like sideMenu */
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -12,6 +12,7 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   gap: 1rem;
   transition: all 0.3s ease;
+  overflow-x: hidden; /* ✅ prevent horizontal white bar */
 }
 
 /* Tablet view: Apply horizontal layout and allow wrapping if needed */
