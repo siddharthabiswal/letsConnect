@@ -1,11 +1,12 @@
 import './Logo.css';
 
+import logoImage from '../../assets/iconLogo.png';
 const Logo = () => {
-  return (
-    <div className="logo">
-      <img src="/logo192.png" alt="App Logo" />
-    </div>
-  );
+    return (
+        <div className="logo">
+            <img src={logoImage} alt="App Logo" />
+        </div>
+    );
 };
 
 export default Logo;

@@ -12,7 +12,7 @@ const Home = () => {
     return (
         <div className="HomeContainer">
             <Header toggleMenu={() => setMenuOpen(!menuOpen)} />
-            <SideMenu isOpen={menuOpen} />
+            <SideMenu isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
             <ServicesDisplay />
             <ImageCarousel />
         </div>
