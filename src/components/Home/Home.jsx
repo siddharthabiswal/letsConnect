@@ -5,8 +5,11 @@ import SideMenu from "../SideMenu/SideMenu";
 import ImageCarousel from "../Carousel/ImageCarousel";
 import ServicesDisplay from "../ServicesDisplay/ServicesDisplay";
 
+
 import "./Home.css";
-import UserForm from "../DataEntryDashboard/DataEntryDashboard";
+import AdvertisementsPopUp from "../AdvertisementsPopUp/AdvertisementsPopUp";
+//import UserForm from "../DataEntryDashboard/DataEntryDashboard";
+//import FetchUsers from "../DataShowDashboard/DataShowDashboard";
 
 const Home = () => {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -17,8 +20,10 @@ const Home = () => {
             <SideMenu isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
             <ServicesDisplay />
             <ImageCarousel />
-            <UserForm />
-        </div>
+            <AdvertisementsPopUp />
+            {/* <UserForm />
+            <FetchUsers /> */}
+        </div >
     );
 };
 
