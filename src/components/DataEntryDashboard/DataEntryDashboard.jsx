@@ -1,32 +1,17 @@
 import { useState } from "react";
 import { db } from "../../firebase";
-import { collection, addDoc } from "firebase/firestore";
 import { doc, setDoc } from "firebase/firestore";
 
 const UserForm = () => {
     const [formData, setFormData] = useState({
         name: "",
         address: "",
-        phone: ""
+        phone: "",
     });
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
-
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-    //     try {
-    //         await addDoc(collection(db, "users"), formData);
-    //         alert("Data submitted successfully!");
-    //         setFormData({ name: "", address: "", phone: "" });
-    //     } catch (error) {
-    //         console.error("Error submitting data:", error);
-    //     }
-    // };
-
-
-
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -42,7 +27,7 @@ const UserForm = () => {
             await setDoc(doc(db, "users", phone), {
                 name,
                 address,
-                phone
+                phone,
             });
 
             alert("Data submitted successfully!");
@@ -90,7 +75,7 @@ const formStyle = {
     gap: "1rem",
     maxWidth: "300px",
     margin: "auto",
-    marginTop: "2rem"
+    marginTop: "2rem",
 };
 
 export default UserForm;
