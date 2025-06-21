@@ -1,0 +1,3 @@
+
+
+export const localityList = ['MARWADIPADA', 'GOBINDPALI', 'GARUMARKET', 'BHATLICHOWK', 'BARGARHTOWN', 'NAGENPALI'];

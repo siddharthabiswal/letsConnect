@@ -6,6 +6,7 @@ import ImageCarousel from "../Carousel/ImageCarousel";
 import ServicesDisplay from "../ServicesDisplay/ServicesDisplay";
 
 import "./Home.css";
+import RegistrationForm from "../RegistrationForm/RegistrationForm";
 //import AdvertisementsPopUp from "../AdvertisementsPopUp/AdvertisementsPopUp";
 //import UserForm from "../DataEntryDashboard/DataEntryDashboard";
 //import FetchUsers from "../DataShowDashboard/DataShowDashboard";
@@ -15,10 +16,14 @@ const Home = () => {
 
     return (
         <div className="HomeContainer">
+
             <Header toggleMenu={() => setMenuOpen(!menuOpen)} />
-            <SideMenu isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
-            <ServicesDisplay />
             <ImageCarousel />
+
+            <SideMenu isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
+            <RegistrationForm />
+            <ServicesDisplay />
+
             {/* <AdvertisementsPopUp /> */}
             {/* <UserForm />
             <FetchUsers /> */}
