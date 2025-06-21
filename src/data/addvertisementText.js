@@ -1,3 +1,1 @@
-
-
 export const advertisementstext = "Thank you for choosing to share your services with us.Posting an ad is completely free, and we're here to support you every step of the way. Simply give us a call, and our team will gladly take care of everything — from creating your ad to posting it for you.You don't have to worry about a thing — we're here to help, always."

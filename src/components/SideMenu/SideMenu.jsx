@@ -1,8 +1,19 @@
 import sideMenuItems from "../../data/sideMenuItems";
+import AdvertisementsPopUp from "../AdvertisementsPopUp/AdvertisementsPopUp";
 import LanguageDropdown from "../LanguageDropdown/LanguageDropdown";
 import "./SideMenu.css";
+import { useState } from "react";
 
 const SideMenu = ({ isOpen, onClose }) => {
+    const [showAdPopup, setShowAdPopup] = useState(false);
+
+    const handleMenuClick = (item) => {
+        if (item.action === "openAdPopup") {
+            setShowAdPopup(true);
+        }
+        onClose(); // Close side menu
+    };
+
     return (
         <>
             {isOpen && <div className="sideMenuOverlay" onClick={onClose}></div>}
@@ -12,7 +23,9 @@ const SideMenu = ({ isOpen, onClose }) => {
                     {sideMenuItems.map((item, index) => (
                         <li
                             key={index}
-                            onClick={item.isLanguageSelector ? undefined : onClose}
+                            onClick={() => {
+                                if (!item.isLanguageSelector) handleMenuClick(item);
+                            }}
                         >
                             {item.icon} {item.label}
                             {item.isLanguageSelector && <LanguageDropdown />}
@@ -20,6 +33,10 @@ const SideMenu = ({ isOpen, onClose }) => {
                     ))}
                 </ul>
             </div>
+
+            {showAdPopup && (
+                <AdvertisementsPopUp onClose={() => setShowAdPopup(false)} />
+            )}
         </>
     );
 };
