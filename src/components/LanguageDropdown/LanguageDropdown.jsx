@@ -5,7 +5,6 @@ const LanguageDropdown = () => {
     const { i18n } = useTranslation();
 
     const changeLanguage = (lang) => {
-        alert(lang);
         i18n.changeLanguage(lang);
     };
 

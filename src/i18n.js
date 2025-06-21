@@ -1,10 +1,10 @@
-import i18n from 'i18next';
-import { initReactI18next } from 'react-i18next';
-import LanguageDetector from 'i18next-browser-languagedetector';
+import i18n from "i18next";
+import { initReactI18next } from "react-i18next";
+import LanguageDetector from "i18next-browser-languagedetector";
 
-import en from '../src/locales/en/translation.json';
-import hi from '../src/locales/hi/translation.json';
-import or from '../src/locales/en/translation.json';
+import en from "../src/locales/en/translation.json";
+import hi from "../src/locales/hi/translation.json";
+import or from "../src/locales/or/translation.json";
 
 i18n
     .use(LanguageDetector) // auto-detect browser language
@@ -13,12 +13,12 @@ i18n
         resources: {
             en: { translation: en },
             hi: { translation: hi },
-            or: { translation: or }
+            or: { translation: or },
         },
-        fallbackLng: 'en',
+        fallbackLng: "en",
         interpolation: {
-            escapeValue: false
-        }
+            escapeValue: false,
+        },
     });
 
 export default i18n;

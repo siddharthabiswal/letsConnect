@@ -4,7 +4,9 @@ import SideMenu from "../SideMenu/SideMenu";
 
 import ImageCarousel from "../Carousel/ImageCarousel";
 import ServicesDisplay from "../ServicesDisplay/ServicesDisplay";
+
 import "./Home.css";
+import UserForm from "../DataEntryDashboard/DataEntryDashboard";
 
 const Home = () => {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -15,6 +17,7 @@ const Home = () => {
             <SideMenu isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
             <ServicesDisplay />
             <ImageCarousel />
+            <UserForm />
         </div>
     );
 };
