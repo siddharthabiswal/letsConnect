@@ -5,9 +5,8 @@ import SideMenu from "../SideMenu/SideMenu";
 import ImageCarousel from "../Carousel/ImageCarousel";
 import ServicesDisplay from "../ServicesDisplay/ServicesDisplay";
 
-
 import "./Home.css";
-import AdvertisementsPopUp from "../AdvertisementsPopUp/AdvertisementsPopUp";
+//import AdvertisementsPopUp from "../AdvertisementsPopUp/AdvertisementsPopUp";
 //import UserForm from "../DataEntryDashboard/DataEntryDashboard";
 //import FetchUsers from "../DataShowDashboard/DataShowDashboard";
 
@@ -20,10 +19,10 @@ const Home = () => {
             <SideMenu isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
             <ServicesDisplay />
             <ImageCarousel />
-            <AdvertisementsPopUp />
+            {/* <AdvertisementsPopUp /> */}
             {/* <UserForm />
             <FetchUsers /> */}
-        </div >
+        </div>
     );
 };
 
