@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import "../RegistrationForm/RegistrationForm.css";
-import DropDownMenuCheckBox from "../Common/DropDownMenuCheckBox/DropDownMenuCheckBox";
+//import DropDownMenuCheckBox from "../Common/DropDownMenuCheckBox/DropDownMenuCheckBox";
 import DropDownMenu from "../Common/DropDownMenu/DropDownMenu";
 // import { servicesList } from "../../data/servicesList";
 // import { localityList } from "../../data/localityList";
@@ -31,11 +31,10 @@ const RegistrationForm = () => {
         updateUserForm({ ...userForm, [fieldName]: selected });
     };
 
-
     return (
-        <div className="formConatiner">
+        <div className="formContainer ">
             <form className="form">
-                <h1>I am the form</h1>
+                <h1 style={{ textAlign: "center" }}>I am the form</h1>
                 <label htmlFor="userName">Name:</label>
                 <input
                     name="userName"
@@ -60,24 +59,32 @@ const RegistrationForm = () => {
 
                 {/* <DropDownMenuCheckBox /> */}
 
-                <DropDownMenu label="Select Servicess"
+                <DropDownMenu
+                    label="Select Servicess"
                     options={services}
                     value={userForm.userServices}
                     onChange={handleDropdownChange}
-                    name="userServices" />
+                    name="userServices"
+                />
 
-
-                <label htmlFor="userLocality">Active in locality:</label>
-                <input
-                    name="userLocality"
-                    id="userLocality"
+                <DropDownMenu
+                    label="Select localities"
+                    options={localities}
                     value={userForm.userLocality}
-                    onChange={handleInputsChange}
-                ></input>
+                    onChange={handleDropdownChange}
+                    name="userLocality"
+                />
+
+                <DropDownMenu
+                    label="Select localities"
+                    options={localities}
+                    value={userForm.userLocality}
+                    onChange={handleDropdownChange}
+                    name="userLocality"
+                />
+
                 <button onClick={handleSubmit}>Submit</button>
             </form>
-
-            {userForm.userServices}
         </div>
     );
 };
