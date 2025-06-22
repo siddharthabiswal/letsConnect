@@ -1,9 +1,9 @@
 import { useState } from "react";
 
 import "../RegistrationForm/RegistrationForm.css";
+import DropDownMenuCheckBox from "../Common/DropDownMenuCheckBox/DropDownMenuCheckBox";
 // import { servicesList } from "../../data/servicesList";
 // import { localityList } from "../../data/localityList";
-
 const RegistrationForm = () => {
     const initialFormState = {
         userName: "",
@@ -50,6 +50,9 @@ const RegistrationForm = () => {
                     value={userForm.userSecondarPhoneyNumber}
                     onChange={handleInputsChange}
                 ></input>
+
+                <DropDownMenuCheckBox />
+
 
                 <label htmlFor="userLocality">Active in locality:</label>
                 <input

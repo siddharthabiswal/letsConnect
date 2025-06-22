@@ -34,7 +34,14 @@ const DropDownMenuCheckBox = () => {
         <div style={{ padding: "20px", width: "250px" }}>
             <form onSubmit={handleSubmit}>
                 <div ref={dropdownRef} style={{ position: "relative" }}>
-                    <div
+                    <label
+                        htmlFor="country-dropdown"
+                        style={{ display: "block", marginBottom: "6px", fontWeight: "500" }}
+                    >
+                        Select Countries:
+                    </label>
+
+                    <div id="country-dropdown"
                         style={{
                             border: "1px solid #ccc",
                             padding: "10px",
@@ -83,7 +90,8 @@ const DropDownMenuCheckBox = () => {
                 </div>
 
                 <br />
-                <button type="submit">Submit</button>
+                {/* <button type="submit">Submit</button> */}
+                {/* {selectedOptions} */}
             </form>
         </div>
     );
