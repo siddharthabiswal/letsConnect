@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import "../RegistrationForm/RegistrationForm.css";
 import DropDownMenuCheckBox from "../Common/DropDownMenuCheckBox/DropDownMenuCheckBox";
+import DropDownMenu from "../Common/DropDownMenu/DropDownMenu";
 // import { servicesList } from "../../data/servicesList";
 // import { localityList } from "../../data/localityList";
 const RegistrationForm = () => {
@@ -9,10 +10,11 @@ const RegistrationForm = () => {
         userName: "",
         userPrimaryPhoneNumber: "",
         userSecondarPhoneyNumber: "",
-        userServices: "",
-        userLocality: "",
+        userServices: [],
+        userLocality: [],
     };
-
+    const services = ["Plumbing", "Electrician", "Painter"];
+    const localities = ["Bhubaneswar", "Cuttack", "Rourkela"];
     const [userForm, updateUserForm] = useState(initialFormState);
 
     function handleSubmit(params) {
@@ -24,6 +26,11 @@ const RegistrationForm = () => {
         const value = event.target.value;
         updateUserForm({ ...userForm, [name]: value });
     }
+
+    const handleDropdownChange = (selected, fieldName) => {
+        updateUserForm({ ...userForm, [fieldName]: selected });
+    };
+
 
     return (
         <div className="formConatiner">
@@ -51,7 +58,13 @@ const RegistrationForm = () => {
                     onChange={handleInputsChange}
                 ></input>
 
-                <DropDownMenuCheckBox />
+                {/* <DropDownMenuCheckBox /> */}
+
+                <DropDownMenu label="Select Servicess"
+                    options={services}
+                    value={userForm.userServices}
+                    onChange={handleDropdownChange}
+                    name="userServices" />
 
 
                 <label htmlFor="userLocality">Active in locality:</label>
@@ -64,7 +77,7 @@ const RegistrationForm = () => {
                 <button onClick={handleSubmit}>Submit</button>
             </form>
 
-            {userForm.userName}
+            {userForm.userServices}
         </div>
     );
 };
