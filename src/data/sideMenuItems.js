@@ -1,6 +1,6 @@
 const sideMenuItems = [
     { icon: "🏠", label: "Home" },
-    { icon: "✍️", label: "Register Now" },
+    { icon: "✍️", label: "Register Now" , action:"openRegistrationForm"},
     { icon: "📂", label: "Categories" },
     { icon: "📢", label: "Post Ad", action: "openAdPopup" },
     { icon: "🌐", label: "Change Language", isLanguageSelector: true },

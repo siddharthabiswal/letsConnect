@@ -24,7 +24,7 @@ const Home = () => {
             <SideMenu isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
             <RegistrationForm />
             <ServicesDisplay />
-            <DropDownMenuCheckBox />
+            {/* <DropDownMenuCheckBox /> */}
 
             {/* <AdvertisementsPopUp /> */}
             {/* <UserForm />

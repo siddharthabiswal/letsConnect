@@ -4,8 +4,9 @@ import './ServicesDisplay.css'
 const ServicesDisplay = () => {
 
     return (
-        <div className='serviceDisplay'>I am the Service Display COntainer
+        <div className='serviceDisplay'>Let's Connect to your service provider
             <CategoryGrid />
+            
         </div>
     )
 }
