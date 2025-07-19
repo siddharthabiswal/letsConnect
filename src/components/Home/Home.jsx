@@ -6,6 +6,8 @@ import ImageCarousel from "../Carousel/ImageCarousel";
 import ServicesDisplay from "../ServicesDisplay/ServicesDisplay";
 
 import "./Home.css";
+import ContactList from "../ContactList/ContactList";
+// ContactList
 // import RegistrationForm from "../RegistrationForm/RegistrationForm";
 // import DropDownMenuCheckBox from "../Common/DropDownMenuCheckBox/DropDownMenuCheckBox";
 //import AdvertisementsPopUp from "../AdvertisementsPopUp/AdvertisementsPopUp";
@@ -24,6 +26,7 @@ const Home = () => {
             <SideMenu isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
 
             <ServicesDisplay />
+            <ContactList />
             {/* <DropDownMenuCheckBox /> */}
 
             {/* <AdvertisementsPopUp /> */}

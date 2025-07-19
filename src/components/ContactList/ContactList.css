@@ -1,0 +1,79 @@
+.contactListWrapper {
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+.contactListScrollable {
+  max-height: calc(5 * 80px); /* ~80px per contact row */
+  overflow-y: auto;
+  padding-right: 4px; /* for scroll padding */
+}
+
+.contactRow {
+  background-color: #a0d3c5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  margin: 6px 0;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+  cursor: pointer;
+}
+
+.contactRow.selected {
+  background-color: #379488;
+  color: white;
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.contactName {
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.contactPhone {
+  font-size: 14px;
+  color: #333;
+}
+
+.contactArea {
+  font-size: 12px;
+  color: #666;
+}
+
+.statusDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-left: 12px;
+}
+
+.statusDot.black {
+  background-color: #333;
+}
+
+.statusDot.blue {
+  background-color: #00bfff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .contactRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .statusDot {
+    align-self: flex-end;
+    margin-top: 8px;
+  }
+}
