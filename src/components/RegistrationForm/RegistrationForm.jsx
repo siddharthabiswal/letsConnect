@@ -5,7 +5,7 @@ import "../RegistrationForm/RegistrationForm.css";
 import DropDownMenu from "../Common/DropDownMenu/DropDownMenu";
 // import { servicesList } from "../../data/servicesList";
 // import { localityList } from "../../data/localityList";
-const RegistrationForm = () => {
+const RegistrationForm = ({ closeForm }) => {
     const initialFormState = {
         userName: "",
         userPrimaryPhoneNumber: "",
@@ -34,6 +34,7 @@ const RegistrationForm = () => {
     return (
         <div className="formContainer ">
             <form className="form">
+                {/* <button type="button" onClick={closeForm} className="closeBtn">×</button> */}
                 <h1 style={{ textAlign: "center" }}>I am the form</h1>
                 <label htmlFor="userName">Name:</label>
                 <input
