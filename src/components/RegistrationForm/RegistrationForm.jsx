@@ -3,8 +3,13 @@ import { useState } from "react";
 import "../RegistrationForm/RegistrationForm.css";
 //import DropDownMenuCheckBox from "../Common/DropDownMenuCheckBox/DropDownMenuCheckBox";
 import DropDownMenu from "../Common/DropDownMenu/DropDownMenu";
+import { db } from "../../firebase";
+import { arrayUnion, updateDoc, setDoc, doc, getDoc } from "firebase/firestore";
 // import { servicesList } from "../../data/servicesList";
 // import { localityList } from "../../data/localityList";
+
+
+
 const RegistrationForm = ({ closeForm }) => {
     const initialFormState = {
         userName: "",
@@ -17,8 +22,39 @@ const RegistrationForm = ({ closeForm }) => {
     const localities = ["Bhubaneswar", "Cuttack", "Rourkela"];
     const [userForm, updateUserForm] = useState(initialFormState);
 
-    function handleSubmit(params) {
-        console.log("sbtm click");
+    async function handleSubmit(e) {
+        e.preventDefault();
+        const docRef = doc(db, "users", "allUserEntries");
+
+        // One document for all entries
+
+        // 
+
+
+
+        try {
+            // 1. Check if the document exists
+            const docSnap = await getDoc(docRef);
+
+            if (!docSnap.exists()) {
+                // 2. Create the document with an empty array first
+                await setDoc(docRef, { entries: [] });
+            }
+
+            // 3. Use arrayUnion to append to the array
+            await updateDoc(docRef, {
+                entries: arrayUnion({
+                    ...userForm,
+                    createdAt: new Date().toISOString()  // optional timestamp
+                }),
+            });
+
+            alert("User added successfully!");
+            updateUserForm(initialFormState); // Reset form
+        } catch (error) {
+            console.error("Error adding entry:", error);
+            alert("Error saving data.");
+        }
     }
 
     function handleInputsChange(event) {
@@ -33,7 +69,7 @@ const RegistrationForm = ({ closeForm }) => {
 
     return (
         <div className="formContainer ">
-            <form className="form">
+            <form className="form" onSubmit={handleSubmit}>
                 {/* <button type="button" onClick={closeForm} className="closeBtn">×</button> */}
                 <h1 style={{ textAlign: "center" }}>I am the form</h1>
                 <label htmlFor="userName">Name:</label>

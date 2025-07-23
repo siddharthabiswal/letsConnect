@@ -1,4 +1,6 @@
-import './CategoryGrid.css';
+import { useState } from "react";
+import "./CategoryGrid.css";
+import ContactList from "../ContactList/ContactList";
 
 const categories = [
     { icon: "🔧", label: "AC Repairs" },
@@ -27,7 +29,7 @@ const categories = [
     { icon: "👩‍🏫", label: "Tutors" },
     { icon: "👶", label: "Babysitters" },
     { icon: "🧑‍⚕️", label: "Elderly Care" },
-    { icon: "🖌️🧱", label: "Wall Painting" },     // Brush + bricks
+    { icon: "🖌️🧱", label: "Wall Painting" }, // Brush + bricks
     { icon: "🔨🪚", label: "Woodwork & Carpentry" },
     { icon: "🚕", label: "City Taxi" },
     { icon: "🚗🛣️", label: "Outstation Taxi" },
@@ -37,19 +39,44 @@ const categories = [
     { icon: "💍🎉", label: "Wedding & Parties" },
     { icon: "🎂", label: "Birthday Planners" },
     { icon: "📋", label: "Event Planning Services" },
-
 ];
 
 const CategoryGrid = () => {
+    const [showContacts, setShowContacts] = useState(false);
+
+    const handleCategoryClick = (item) => {
+        console.log("Clicked category:", item.label);
+        setShowContacts(true);
+    };
     return (
-        <div className="categoryGridContainer">
-            {categories.map((item, idx) => (
-                <div key={idx} className="categoryCard">
-                    <div className="categoryIcon">{item.icon}</div>
-                    <div className="categoryLabel">{item.label}</div>
-                </div>
-            ))}
-        </div>
+        <>
+            <div className="categoryGridContainer">
+                {categories.map((item, idx) => (
+                    <div
+                        key={idx}
+                        className="categoryCard"
+                        onClick={() => handleCategoryClick(item)}
+                    >
+                        <div className="categoryIcon">{item.icon}</div>
+                        <div className="categoryLabel">{item.label}</div>
+                    </div>
+                ))}
+            </div>
+            {showContacts && (
+                <>
+                    <div
+                        className="modalOverlay"
+                        onClick={() => setShowContacts(false)}
+                    ></div>
+                    <div className="modalPopup">
+                        <ContactList />
+                        <button className="closeBtn" onClick={() => setShowContacts(false)}>
+                            ×
+                        </button>
+                    </div>
+                </>
+            )}
+        </>
     );
 };
 
