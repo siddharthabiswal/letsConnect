@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import "./ContactsPopup.css"; // styles in a separate file
 
 const contacts = [
@@ -15,32 +14,28 @@ const contacts = [
     "Pal 2"
 ];
 
-const ContactsPopup = () => {
-    const [isOpen, setIsOpen] = useState(false);
+const ContactsPopup = ({ onClose }) => {
+
 
     return (
         <>
-            {/* Button to Open Popup */}
-            {/* <button className="open-btn" onClick={() => setIsOpen(true)}>
-                Open Contacts
-            </button> */}
 
             {/* Popup Modal */}
             {<div className="popup-overlay">
                 <div className="popup-box">
                     {/* Header */}
                     <div className="popup-header">
-                        <button className="back-btn" onClick={() => setIsOpen(false)}>
-                            &lt; Lists
+                        <button className="back-btn" onClick={onClose}>
+                            close
                         </button>
-                        <h3>iCloud</h3>
-                        <button className="add-btn">+</button>
+                        <h3>Let's  Connect</h3>
+                        <button className="add-btn">Register</button>
                     </div>
 
                     {/* Search */}
                     <div className="search-box">
                         <input type="text" placeholder="Search" />
-                        <span className="mic-icon">🎤</span>
+                        {/* <span className="mic-icon">🎤</span> */}
                     </div>
 
                     {/* Contact List */}

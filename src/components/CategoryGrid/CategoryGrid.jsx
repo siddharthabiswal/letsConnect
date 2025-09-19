@@ -72,7 +72,7 @@ const CategoryGrid = () => {
                         onClick={() => setShowContacts(false)}
                     ></div>
                     <div className="modalPopup">
-                        <ContactsPopup />
+                        <ContactsPopup onClose={() => setShowContacts(false)} />
                         <button className="closeBtn" onClick={() => setShowContacts(false)}>
                             ×
                         </button>
