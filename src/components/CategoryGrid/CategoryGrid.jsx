@@ -46,9 +46,11 @@ const categories = [
 
 const CategoryGrid = () => {
     const [showContacts, setShowContacts] = useState(false);
+    const [selectedCategory, setSelectedCategory] = useState("");
 
     const handleCategoryClick = (item) => {
         console.log("Clicked category:", item.label);
+        setSelectedCategory(item.label);
         setShowContacts(true);
     };
     return (
@@ -71,8 +73,8 @@ const CategoryGrid = () => {
                         className="modalOverlay"
                         onClick={() => setShowContacts(false)}
                     ></div>
-                    <div className="modalPopup">
-                        <ContactsPopup onClose={() => setShowContacts(false)} />
+                    <div className="contactsPopup">
+                        <ContactsPopup onClose={() => setShowContacts(false)} category={selectedCategory} />
                         <button className="closeBtn" onClick={() => setShowContacts(false)}>
                             ×
                         </button>

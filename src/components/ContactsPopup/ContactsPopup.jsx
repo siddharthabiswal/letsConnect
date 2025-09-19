@@ -14,7 +14,7 @@ const contacts = [
     "Pal 2"
 ];
 
-const ContactsPopup = ({ onClose }) => {
+const ContactsPopup = ({ onClose, category }) => {
 
 
     return (
@@ -28,7 +28,7 @@ const ContactsPopup = ({ onClose }) => {
                         <button className="back-btn" onClick={onClose}>
                             close
                         </button>
-                        <h3>Let's  Connect</h3>
+                        <h3>{category || "Let's Connect"}</h3>
                         <button className="add-btn">Register</button>
                     </div>
 
