@@ -1,0 +1,118 @@
+/* Overlay to cover screen */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 10, 10, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/* Popup box */
+.popup-box {
+  width: 90%;
+  max-width: 400px;
+  height: 100%;
+  background: #000;
+  color: #fff;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Header */
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #111;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.back-btn,
+.add-btn {
+  background: none;
+  border: none;
+  color: #2a8bff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+h3 {
+  margin: 0;
+  flex-grow: 1;
+  text-align: center;
+}
+
+/* Search box */
+.search-box {
+  display: flex;
+  align-items: center;
+  padding: 8px 10px;
+  background: #1a1a1a;
+  border-bottom: 1px solid #333;
+}
+
+.search-box input {
+  flex: 1;
+  padding: 6px 10px;
+  background: #2a2a2a;
+  border: none;
+  border-radius: 6px;
+  color: white;
+}
+
+.search-box input:focus {
+  outline: none;
+}
+
+.mic-icon {
+  margin-left: 10px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* Contact list */
+.contacts-list {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.contact-item {
+  padding: 12px 15px;
+  border-bottom: 1px solid #222;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.contact-item:hover {
+  background: #1a1a1a;
+}
+
+/* Button to open popup */
+.open-btn {
+  padding: 10px 15px;
+  font-size: 16px;
+  margin: 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background: #007bff;
+  color: white;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+  .popup-box {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
+}

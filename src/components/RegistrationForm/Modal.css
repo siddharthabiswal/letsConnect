@@ -78,6 +78,54 @@
   cursor: pointer;
 }
 
+/* List container */
+.modalList {
+  /* list-style: none; */
+
+  list-style-type: none !important; /* force remove bullets */
+  list-style: none !important;
+  padding-left: 0; /* removes left indentation */
+  padding-left: 0 !important;
+  padding: 0;
+  margin: 0 0 16px 0;
+  max-height: 50vh; /* scroll if too many */
+  overflow-y: auto;
+  border: 1px solid #eee;
+  border-radius: 6px;
+}
+
+.modalList li {
+  list-style-type: none !important; /* remove bullet */
+  list-style: none !important; /* double safety */
+  padding: 10px 12px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  align-items: center;
+}
+
+/* Each row in list */
+.modalListItem {
+  /* list-style: none; */
+
+  list-style-type: none !important; /* double safety */
+  list-style: none !important;
+  padding: 10px 12px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  align-items: center;
+}
+
+.modalListItem:last-child {
+  border-bottom: none;
+}
+
+/* Checkbox alignment */
+.modalListItem input[type="checkbox"] {
+  margin-right: 10px;
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
 /* Animations */
 @keyframes fadeIn {
   to {

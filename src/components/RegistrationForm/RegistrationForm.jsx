@@ -147,7 +147,7 @@ const RegistrationForm = ({ closeForm }) => {
             </Modal>
 
             {/* Localities Modal */}
-            <Modal
+            {/* <Modal
                 isOpen={showLocalityModal}
                 onClose={() => setShowLocalityModal(false)}
                 title="Select Localities"
@@ -162,6 +162,35 @@ const RegistrationForm = ({ closeForm }) => {
                             />
                             {loc}
                         </label>
+                    ))}
+                </div>
+                <button onClick={() => setShowLocalityModal(false)}>Done</button>
+            </Modal> */}
+
+
+
+
+
+
+
+            {/* Localities Modal */}
+            <Modal
+                isOpen={showLocalityModal}
+                onClose={() => setShowLocalityModal(false)}
+                title="Select Localities"
+            >
+                <div className="modalList">
+                    {localities.map((loc, index) => (
+                        <div key={index} className="modalListItem">
+                            <label>
+                                <input
+                                    type="checkbox"
+                                    checked={userForm.userLocality.includes(loc)}
+                                    onChange={() => handleLocalityToggle(loc)}
+                                />
+                                {loc}
+                            </label>
+                        </div>
                     ))}
                 </div>
                 <button onClick={() => setShowLocalityModal(false)}>Done</button>

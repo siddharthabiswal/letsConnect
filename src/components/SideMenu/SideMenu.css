@@ -71,7 +71,7 @@
   position: fixed;
   top: 5%;
   left: 50%;
-  transform: translate(-50%);
+  /* transform: translate(-50%); commented to display the contact list properly*/
   background: #fff;
   padding: 24px;
   border-radius: 8px;

@@ -1,6 +1,9 @@
 import { useState } from "react";
 import "./CategoryGrid.css";
-import ContactList from "../ContactList/ContactList";
+// import ContactList from "../ContactList/ContactList";
+import ContactsPopup from "../ContactsPopup/ContactsPopup";
+
+
 
 const categories = [
     { icon: "🔧", label: "AC Repairs" },
@@ -69,7 +72,7 @@ const CategoryGrid = () => {
                         onClick={() => setShowContacts(false)}
                     ></div>
                     <div className="modalPopup">
-                        <ContactList />
+                        <ContactsPopup />
                         <button className="closeBtn" onClick={() => setShowContacts(false)}>
                             ×
                         </button>
