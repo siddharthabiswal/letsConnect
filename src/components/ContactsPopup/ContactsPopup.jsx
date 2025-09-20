@@ -60,7 +60,7 @@ const ContactsPopup = ({ onClose, category }) => {
             </div>
             }
             {showRegistration && (
-                <RegistrationPopup onClose={() => setShowRegistration(false)} />
+                <RegistrationPopup onClose={() => setShowRegistration(false)} defaultCategory={category} />
             )}
         </>
     );

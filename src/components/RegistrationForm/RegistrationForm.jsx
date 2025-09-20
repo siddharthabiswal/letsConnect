@@ -4,13 +4,14 @@ import { db } from "../../firebase";
 import { arrayUnion, updateDoc, setDoc, doc, getDoc } from "firebase/firestore";
 import Modal from "./Modal";
 
-const RegistrationForm = ({ closeForm }) => {
+const RegistrationForm = ({ closeForm, defaultCategory }) => {
     const initialFormState = {
         userName: "",
         userPrimaryPhoneNumber: "",
         userSecondarPhoneyNumber: "",
         userServices: [],
         userLocality: [],
+        category: defaultCategory || "",
     };
 
     const services = ["Plumbing", "Electrician", "Painter"];
@@ -75,6 +76,14 @@ const RegistrationForm = ({ closeForm }) => {
         <div className="formContainer">
             <form className="form" onSubmit={handleSubmit}>
                 <h1 style={{ textAlign: "center" }}>I am the form</h1>
+                <label htmlFor="category">Category:</label>
+                <input
+                    name="category"
+                    id="category"
+                    value={userForm.category}
+                    onChange={handleInputsChange}
+                    readOnly
+                />
 
                 <label htmlFor="userName">Name:</label>
                 <input

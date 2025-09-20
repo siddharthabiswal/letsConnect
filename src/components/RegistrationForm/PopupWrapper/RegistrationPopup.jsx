@@ -3,7 +3,7 @@ import RegistrationForm from "../RegistrationForm";
 import "./RegistrationPopup.css";
 
 
-const RegistrationPopup = ({ onClose }) => {
+const RegistrationPopup = ({ onClose, defaultCategory  }) => {
     return (
         <div className="registrationOverlay">
             <div className="registrationBox">
@@ -15,7 +15,7 @@ const RegistrationPopup = ({ onClose }) => {
                 </div>
 
                 {/* Your existing form */}
-                <RegistrationForm closeForm={onClose} />
+                <RegistrationForm closeForm={onClose} defaultCategory={defaultCategory} />
             </div>
         </div>
     );
