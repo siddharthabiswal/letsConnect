@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import "./ContactsPopup.css"; // styles in a separate file
 import RegistrationPopup from "../RegistrationForm/PopupWrapper/RegistrationPopup";
-
+import { db } from "../../firebase";
+import { doc, getDoc, onSnapshot } from "firebase/firestore";
 const contacts = [
     "om ply",
     "On Net Office",
@@ -16,9 +17,43 @@ const contacts = [
     "Pal 2"
 ];
 
-const ContactsPopup = ({ onClose, category }) => {
+const ContactsPopup = ({ onClose, category, onRegister }) => {
 
     const [showRegistration, setShowRegistration] = useState(false);
+
+    const [contacts, setContacts] = useState([]);
+
+
+
+    useEffect(() => {
+        const fetchContacts = async () => {
+            if (!category) return;
+            try {
+                const docRef = doc(db, "users", category);
+                // const docSnap = await getDoc(docRef);
+
+                // if (docSnap.exists()) {
+                //     setContacts(docSnap.data().entries || []);
+                // } else {
+                //     setContacts([]);
+                // }
+
+                const unsubscribe = onSnapshot(docRef, (docSnap) => {
+                    if (docSnap.exists()) {
+                        setContacts(docSnap.data().entries || []);
+                    } else {
+                        setContacts([]);
+                    }
+                });
+
+                return () => unsubscribe();
+            } catch (err) {
+                console.error("Error fetching contacts:", err);
+            }
+        };
+
+        fetchContacts();
+    }, [category]);
 
     //prevent scrolling and flickering 
     useEffect(() => {
@@ -49,12 +84,28 @@ const ContactsPopup = ({ onClose, category }) => {
                     </div>
 
                     {/* Contact List */}
-                    <div className="contacts-list">
+                    {/* <div className="contacts-list">
                         {contacts.map((contact, index) => (
                             <div key={index} className="contact-item">
                                 {contact}
                             </div>
                         ))}
+                    </div> */}
+
+                    <div className="contacts-list">
+                        {contacts.length > 0 ? (
+                            contacts.map((contact, idx) => (
+                                <div key={idx} className="contact-item">
+                                    <strong>{contact.userName}</strong> <br />
+                                    📞 {contact.userPrimaryPhoneNumber}
+                                    {contact.userSecondarPhoneyNumber && (
+                                        <> / {contact.userSecondarPhoneyNumber}</>
+                                    )}
+                                </div>
+                            ))
+                        ) : (
+                            <p>No contacts yet for this category</p>
+                        )}
                     </div>
                 </div>
             </div>
