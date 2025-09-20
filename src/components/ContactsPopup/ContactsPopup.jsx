@@ -1,4 +1,6 @@
+import { useEffect, useState } from "react";
 import "./ContactsPopup.css"; // styles in a separate file
+import RegistrationPopup from "../RegistrationForm/PopupWrapper/RegistrationPopup";
 
 const contacts = [
     "om ply",
@@ -16,7 +18,15 @@ const contacts = [
 
 const ContactsPopup = ({ onClose, category }) => {
 
+    const [showRegistration, setShowRegistration] = useState(false);
 
+    //prevent scrolling and flickering 
+    useEffect(() => {
+        document.body.style.overflow = "hidden";
+        return () => {
+            document.body.style.overflow = "auto";
+        };
+    }, []);
     return (
         <>
 
@@ -29,7 +39,7 @@ const ContactsPopup = ({ onClose, category }) => {
                             close
                         </button>
                         <h3>{category || "Let's Connect"}</h3>
-                        <button className="add-btn">Register</button>
+                        <button className="add-btn" onClick={() => setShowRegistration(true)}>Register</button>
                     </div>
 
                     {/* Search */}
@@ -47,7 +57,11 @@ const ContactsPopup = ({ onClose, category }) => {
                         ))}
                     </div>
                 </div>
-            </div>}
+            </div>
+            }
+            {showRegistration && (
+                <RegistrationPopup onClose={() => setShowRegistration(false)} />
+            )}
         </>
     );
 };

@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./CategoryGrid.css";
 // import ContactList from "../ContactList/ContactList";
 import ContactsPopup from "../ContactsPopup/ContactsPopup";
+import RegistrationPopup from "../RegistrationForm/PopupWrapper/RegistrationPopup";
 
 
 
@@ -47,6 +48,7 @@ const categories = [
 const CategoryGrid = () => {
     const [showContacts, setShowContacts] = useState(false);
     const [selectedCategory, setSelectedCategory] = useState("");
+    const [showRegistration, setShowRegistration] = useState(false);
 
     const handleCategoryClick = (item) => {
         console.log("Clicked category:", item.label);
@@ -74,11 +76,15 @@ const CategoryGrid = () => {
                         onClick={() => setShowContacts(false)}
                     ></div>
                     <div className="contactsPopup">
-                        <ContactsPopup onClose={() => setShowContacts(false)} category={selectedCategory} />
+                        <ContactsPopup onClose={() => setShowContacts(false)} category={selectedCategory} contacts={selectedCategory.contacts} onRegister={() => {
+                            setShowContacts(false);
+                            setShowRegistration(true);
+                        }} />
                         <button className="closeBtn" onClick={() => setShowContacts(false)}>
                             ×
                         </button>
                     </div>
+
                 </>
             )}
         </>
