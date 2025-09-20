@@ -24,8 +24,18 @@ const RegistrationForm = ({ closeForm, defaultCategory }) => {
     const [showLocalityModal, setShowLocalityModal] = useState(false);
 
     async function handleSubmit(e) {
+        // e.preventDefault();
+
         e.preventDefault();
-        const docRef = doc(db, "users", "allUserEntries");
+
+        if (!defaultCategory) {
+            alert("Category missing!");
+            return;
+        }
+
+        // const docRef = doc(db, "users", "allUserEntries");
+
+        const docRef = doc(db, "users", defaultCategory);
 
         try {
             const docSnap = await getDoc(docRef);
@@ -41,7 +51,13 @@ const RegistrationForm = ({ closeForm, defaultCategory }) => {
             });
 
             alert("User added successfully!");
-            updateUserForm(initialFormState);
+            // updateUserForm(initialFormState);
+
+            updateUserForm({
+                ...initialFormState,
+                category: defaultCategory, // keep category pre-filled
+            });
+            closeForm();
         } catch (error) {
             console.error("Error adding entry:", error);
             alert("Error saving data.");
