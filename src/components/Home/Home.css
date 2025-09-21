@@ -13,6 +13,8 @@
   gap: 1rem;
   transition: all 0.3s ease;
   overflow-x: hidden; /* ✅ prevent horizontal white bar */
+
+  padding-top: 60px;
 }
 
 /* Tablet view: Apply horizontal layout and allow wrapping if needed */
