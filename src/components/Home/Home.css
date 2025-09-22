@@ -12,9 +12,12 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   gap: 1rem;
   transition: all 0.3s ease;
-  overflow-x: hidden; /* ✅ prevent horizontal white bar */
 
   padding-top: 60px;
+  min-height: 100vh;
+
+  overflow-x: hidden; /* ✅ prevent horizontal white bar */
+  overflow-y: auto; /* ✅ ensures vertical scroll is controlled */
 }
 
 /* Tablet view: Apply horizontal layout and allow wrapping if needed */
