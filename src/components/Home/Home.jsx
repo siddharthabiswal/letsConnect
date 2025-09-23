@@ -9,20 +9,51 @@ const Home = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
 
+  // useEffect(() => {
+  //   if (menuOpen) {
+  //     document.body.style.overflow = "hidden";
+  //     // document.body.style.height = "100%";
+  //   } else {
+  //     document.body.style.overflow = "";
+  //     document.body.style.height = "";
+  //   }
+  //   return () => {
+  //     document.body.style.overflow = "";
+  //     document.body.style.height = "";
+  //   };
+  // }, [menuOpen]);
+
+
+
+
+  // useEffect(() => {
+  //   if (menuOpen) {
+  //     document.body.style.overflow = "hidden"; // ✅ lock scroll
+  //   } else {
+  //     document.body.style.overflow = ""; // ✅ restore default
+  //   }
+
+  //   return () => {
+  //     document.body.style.overflow = ""; // cleanup
+  //   };
+  // }, [menuOpen]);
+
+
+
   useEffect(() => {
+    const home = document.querySelector(".HomeContainer");
+
     if (menuOpen) {
-      document.body.style.overflow = "hidden";
-      document.body.style.height = "100%";
+      // lock the scroll on the actual scrollable container
+      home?.classList.add("locked");
     } else {
-      document.body.style.overflow = "";
-      document.body.style.height = "";
+      home?.classList.remove("locked");
     }
+
     return () => {
-      document.body.style.overflow = "";
-      document.body.style.height = "";
+      home?.classList.remove("locked");
     };
   }, [menuOpen]);
-
 
 
   return (

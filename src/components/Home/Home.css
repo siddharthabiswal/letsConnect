@@ -14,10 +14,16 @@
   transition: all 0.3s ease;
 
   padding-top: 60px;
-  min-height: 100vh;
+  min-height: 100dvh; /* ✅ accounts for shrinking address bar */
+  min-height: 100vh; /* fallback */
 
   overflow-x: hidden; /* ✅ prevent horizontal white bar */
   overflow-y: auto; /* ✅ ensures vertical scroll is controlled */
+}
+
+.HomeContainer.locked {
+  overflow: hidden; /* ✅ stop scroll */
+  height: 100dvh; /* ✅ prevent collapsing */
 }
 
 /* Tablet view: Apply horizontal layout and allow wrapping if needed */
