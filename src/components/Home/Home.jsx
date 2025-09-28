@@ -4,10 +4,12 @@ import SideMenu from "../SideMenu/SideMenu";
 import ImageCarousel from "../Carousel/ImageCarousel";
 import ServicesDisplay from "../ServicesDisplay/ServicesDisplay";
 import "./Home.css";
+import categories from "../../data/categories";
 
 const Home = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const [searchTerm, setSearchTerm] = useState("");
 
   // useEffect(() => {
   //   if (menuOpen) {
@@ -38,7 +40,12 @@ const Home = () => {
   //   };
   // }, [menuOpen]);
 
-
+  // Filter categories
+  const filteredCategories = categories.filter(
+    (cat) =>
+      cat.label.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      cat.category.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   useEffect(() => {
     const home = document.querySelector(".HomeContainer");
@@ -58,10 +65,11 @@ const Home = () => {
 
   return (
     <div className="HomeContainer">
-      <Header toggleMenu={() => setMenuOpen(!menuOpen)} />
+      {searchTerm}
+      <Header toggleMenu={() => setMenuOpen(!menuOpen)} onSearch={setSearchTerm} />
       <ImageCarousel />
       <SideMenu isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
-      <ServicesDisplay />
+      <ServicesDisplay categories={filteredCategories} />
     </div>
   );
 };

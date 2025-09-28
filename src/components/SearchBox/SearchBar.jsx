@@ -7,20 +7,25 @@ const SearchBar = ({ onSearch }) => {
 
     const handleSearch = (e) => {
         e.preventDefault();
-        if (onSearch) onSearch(query.trim());
+        const value = e.target.value;
+        setQuery(value);
+        if (onSearch) onSearch(value); // send value to parent
     };
 
     return (
-        <form className="search-bar" onSubmit={handleSearch}>
+        <form className="search-bar">
+            {/* <form className="search-bar" onSubmit={handleSearch}> */}
             <input
                 type="text"
                 placeholder="Search categories..."
                 value={query}
-                onChange={(e) => setQuery(e.target.value)}
+                onChange={handleSearch}
             />
             <button type="submit" aria-label="Search">
                 <span className="search-icon">🔍</span>
             </button>
+
+            {query}
         </form>
     );
 };

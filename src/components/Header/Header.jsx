@@ -4,14 +4,15 @@ import { useTranslation } from 'react-i18next';
 import SearchBar from '../SearchBox/SearchBar';
 
 
-const Header = ({ toggleMenu }) => {
+const Header = ({ toggleMenu, onSearch }) => {
     const { t } = useTranslation();
     return (
         <div className="header">
             <div className="menuButton" onClick={toggleMenu}>☰</div>
             {/* <h1>{t('welcome')}</h1> */}
-            <SearchBar />
+            <SearchBar onSearch={onSearch} />
             <Logo />
+
         </div>
     );
 };
