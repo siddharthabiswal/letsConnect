@@ -65,7 +65,6 @@ const Home = () => {
 
   return (
     <div className="HomeContainer">
-      {searchTerm}
       <Header toggleMenu={() => setMenuOpen(!menuOpen)} onSearch={setSearchTerm} />
       <ImageCarousel />
       <SideMenu isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
