@@ -1,3 +1,7 @@
+:root {
+  --vh: 1vh; /* fallback */
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -12,6 +16,7 @@ body,
   width: 100%;
   font-family: "Segoe UI", sans-serif;
   background-color: #f5f5f5;
+  overflow: hidden !important;
 }
 
 html,
