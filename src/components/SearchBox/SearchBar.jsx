@@ -21,9 +21,9 @@ const SearchBar = ({ onSearch }) => {
                 value={query}
                 onChange={handleSearch}
             />
-            <button type="submit" aria-label="Search">
+            {/* <button type="submit" aria-label="Search">
                 <span className="search-icon">🔍</span>
-            </button>
+            </button> */}
         </form>
     );
 };
