@@ -29,8 +29,6 @@
 /* Tablet view: Apply horizontal layout and allow wrapping if needed */
 @media (min-width: 768px) {
   .HomeContainer {
-    flex-direction: row; /* Place children side-by-side */
-    flex-wrap: wrap; /* Wrap children to next row if there's not enough space */
     padding: 2rem; /* Slightly larger padding on bigger screens */
     gap: 1.5rem; /* More spacing between children */
   }
