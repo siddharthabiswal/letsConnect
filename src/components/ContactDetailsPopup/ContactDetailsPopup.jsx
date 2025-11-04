@@ -9,9 +9,9 @@ const ContactDetailsPopup = ({ contact, onClose }) => {
             <div className="details-box">
                 {/* Header */}
                 <div className="details-header">
-                    <button className="back-btn" onClick={onClose}>←</button>
-                    <h3>{contact.userName}</h3>
-                    <button className="edit-btn">Edit</button>
+                    <button className="back-btn" onClick={onClose}>close</button>
+                    {/* <h3>{contact.userName}</h3> */}
+                    {/* <button className="edit-btn">Edit</button> */}
                 </div>
 
                 {/* Avatar */}
@@ -32,14 +32,14 @@ const ContactDetailsPopup = ({ contact, onClose }) => {
                         <span className="icon">📞</span>
                         <p>Call</p>
                     </div>
-                    <div className="action-item">
+                    {/* <div className="action-item">
                         <span className="icon">🎥</span>
                         <p>Video</p>
-                    </div>
-                    <div className="action-item">
+                    </div> */}
+                    {/* <div className="action-item">
                         <span className="icon">✉️</span>
                         <p>Mail</p>
-                    </div>
+                    </div> */}
                 </div>
 
                 {/* Phone numbers */}
