@@ -1,17 +1,30 @@
-
 import "./ContactDetailsPopup.css";
 
 const ContactDetailsPopup = ({ contact, onClose }) => {
     if (!contact) return null;
+
+    // open WhatsApp chat
+    const openWhatsApp = (phone) => {
+        if (!phone) return alert("No phone number available!");
+        const formattedNumber = phone.replace(/[^0-9]/g, ""); // remove non-numeric chars
+        const whatsappUrl = `https://wa.me/${formattedNumber}`;
+        window.open(whatsappUrl, "_blank");
+    };
+
+    // make a call
+    const makeCall = (phone) => {
+        if (!phone) return alert("No phone number available!");
+        window.location.href = `tel:${phone}`;
+    };
 
     return (
         <div className="details-overlay">
             <div className="details-box">
                 {/* Header */}
                 <div className="details-header">
-                    <button className="back-btn" onClick={onClose}>close</button>
-                    {/* <h3>{contact.userName}</h3> */}
-                    {/* <button className="edit-btn">Edit</button> */}
+                    <button className="back-btn" onClick={onClose}>
+                        close
+                    </button>
                 </div>
 
                 {/* Avatar */}
@@ -24,22 +37,23 @@ const ContactDetailsPopup = ({ contact, onClose }) => {
 
                 {/* Contact Actions */}
                 <div className="actions-row">
-                    <div className="action-item">
-                        <span className="icon">💬</span>
+                    {/* WhatsApp Message */}
+                    <div
+                        className="action-item"
+                        onClick={() => openWhatsApp(contact.userPrimaryPhoneNumber)}
+                    >
+                        <span className="icon">🟢💬</span>
                         <p>Message</p>
                     </div>
-                    <div className="action-item">
+
+                    {/* Call */}
+                    <div
+                        className="action-item"
+                        onClick={() => makeCall(contact.userPrimaryPhoneNumber)}
+                    >
                         <span className="icon">📞</span>
                         <p>Call</p>
                     </div>
-                    {/* <div className="action-item">
-                        <span className="icon">🎥</span>
-                        <p>Video</p>
-                    </div> */}
-                    {/* <div className="action-item">
-                        <span className="icon">✉️</span>
-                        <p>Mail</p>
-                    </div> */}
                 </div>
 
                 {/* Phone numbers */}
