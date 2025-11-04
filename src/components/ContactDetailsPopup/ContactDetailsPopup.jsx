@@ -3,18 +3,61 @@ import "./ContactDetailsPopup.css";
 const ContactDetailsPopup = ({ contact, onClose }) => {
     if (!contact) return null;
 
-    // open WhatsApp chat
+    // 🟢 Open WhatsApp Chat
     const openWhatsApp = (phone) => {
         if (!phone) return alert("No phone number available!");
-        const formattedNumber = phone.replace(/[^0-9]/g, ""); // remove non-numeric chars
+        const formattedNumber = phone.replace(/[^0-9]/g, "");
         const whatsappUrl = `https://wa.me/${formattedNumber}`;
         window.open(whatsappUrl, "_blank");
     };
 
-    // make a call
+    // 📞 Make a Call
     const makeCall = (phone) => {
         if (!phone) return alert("No phone number available!");
         window.location.href = `tel:${phone}`;
+    };
+
+    // 💾 Save Contact (using vCard)
+    const saveContact = () => {
+        if (!contact?.userName || !contact?.userPrimaryPhoneNumber)
+            return alert("Missing contact details!");
+
+        const vCardData = `
+BEGIN:VCARD
+VERSION:3.0
+FN:${contact.userName}
+TEL;TYPE=CELL:${contact.userPrimaryPhoneNumber}
+END:VCARD
+    `.trim();
+
+        const blob = new Blob([vCardData], { type: "text/vcard" });
+        const url = URL.createObjectURL(blob);
+
+        // Create a temporary link to trigger download
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = `${contact.userName}.vcf`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    };
+
+    // 📤 Share Contact using Web Share API
+    const shareContact = async () => {
+        if (!navigator.share) {
+            alert("Sharing is not supported on this device!");
+            return;
+        }
+
+        const shareText = `Contact: ${contact.userName}\nPhone: ${contact.userPrimaryPhoneNumber}`;
+        try {
+            await navigator.share({
+                title: `Share Contact - ${contact.userName}`,
+                text: shareText,
+            });
+        } catch (err) {
+            console.error("Share cancelled or failed:", err);
+        }
     };
 
     return (
@@ -37,7 +80,6 @@ const ContactDetailsPopup = ({ contact, onClose }) => {
 
                 {/* Contact Actions */}
                 <div className="actions-row">
-                    {/* WhatsApp Message */}
                     <div
                         className="action-item"
                         onClick={() => openWhatsApp(contact.userPrimaryPhoneNumber)}
@@ -45,14 +87,20 @@ const ContactDetailsPopup = ({ contact, onClose }) => {
                         <span className="icon">🟢💬</span>
                         <p>Message</p>
                     </div>
-
-                    {/* Call */}
                     <div
                         className="action-item"
                         onClick={() => makeCall(contact.userPrimaryPhoneNumber)}
                     >
                         <span className="icon">📞</span>
                         <p>Call</p>
+                    </div>
+                    <div className="action-item" onClick={shareContact}>
+                        <span className="icon">📤</span>
+                        <p>Share</p>
+                    </div>
+                    <div className="action-item" onClick={saveContact}>
+                        <span className="icon">💾</span>
+                        <p>Save</p>
                     </div>
                 </div>
 
