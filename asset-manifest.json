@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/letsConnect/static/css/main.50fb16ce.css",
-    "main.js": "/letsConnect/static/js/main.1856181e.js",
+    "main.css": "/letsConnect/static/css/main.eac35e31.css",
+    "main.js": "/letsConnect/static/js/main.9cc70e19.js",
     "static/js/453.6485c432.chunk.js": "/letsConnect/static/js/453.6485c432.chunk.js",
     "static/media/iconLogo.png": "/letsConnect/static/media/iconLogo.2ab1387d6c510275ed9c.png",
     "static/media/slick.svg": "/letsConnect/static/media/slick.2630a3e3eab21c607e21.svg",
@@ -9,12 +9,12 @@
     "static/media/slick.ttf": "/letsConnect/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/letsConnect/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/letsConnect/index.html",
-    "main.50fb16ce.css.map": "/letsConnect/static/css/main.50fb16ce.css.map",
-    "main.1856181e.js.map": "/letsConnect/static/js/main.1856181e.js.map",
+    "main.eac35e31.css.map": "/letsConnect/static/css/main.eac35e31.css.map",
+    "main.9cc70e19.js.map": "/letsConnect/static/js/main.9cc70e19.js.map",
     "453.6485c432.chunk.js.map": "/letsConnect/static/js/453.6485c432.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.50fb16ce.css",
-    "static/js/main.1856181e.js"
+    "static/css/main.eac35e31.css",
+    "static/js/main.9cc70e19.js"
   ]
 }
